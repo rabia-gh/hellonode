@@ -15,7 +15,7 @@ node {
         sh '''docker build -f Dockerfile -t rabia97/hellonode . || true '''
     }
     stage('Push image') {
-        withDockerRegistry([ credentialsId: "rabia97", url: "" ]) {
+        withDockerRegistry([ credentialsId: "rabia97", url: "https://registry.hub.docker.com" ]) {
           sh 'docker push rabia97/hellonode:latest'
         }
     }
