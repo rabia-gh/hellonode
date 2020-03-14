@@ -10,7 +10,7 @@ node {
     stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
-        withDockerServer("tcp://0.0.0.0:2375")
+       
         app = docker.build("rabia-gh/hellonode")
     }
 
@@ -19,7 +19,7 @@ node {
          * For this example, we're using a Volkswagen-type approach ;-) */
 
         app.inside {
-            bat 'echo "Tests passed"'
+            sh 'echo "Tests passed"'
         }
     }
 
