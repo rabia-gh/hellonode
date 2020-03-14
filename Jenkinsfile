@@ -12,7 +12,7 @@ node {
          * docker build on the command line */
        
         //app = docker.build("rabia-gh/hellonode")
-        sh '''docker build -f Dockerfile -t rabia-gh/hellonode . || true '''
+        sh '''docker build -f Dockerfile -t rabia97/hellonode . || true '''
     }
 
     stage('Push image') {
