@@ -11,7 +11,8 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
        
-        app = docker.build("rabia-gh/hellonode")
+        //app = docker.build("rabia-gh/hellonode")
+        sh '''docker build -f Dockerfile -t rabia-gh/hellonode . || true '''
     }
 
     stage('Push image') {
