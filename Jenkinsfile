@@ -14,4 +14,11 @@ node {
        // app = docker.build("getintodevops/hellonode")
         sh '''docker build -f Dockerfile -t rabia97/hellonode . || true '''
     }
+    stage('Push image') {
+       steps {
+        withDockerRegistry([ credentialsId: "rabia97", url: "" ]) {
+          sh 'docker push rabia97/hellonode:latest
+        }
+      }
+    }
 }
