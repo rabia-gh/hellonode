@@ -10,7 +10,7 @@ node {
     stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
-        docker.withServer('tcp://0.0.0.0:2375')
+        withDockerServer('tcp://0.0.0.0:2375')
         app = docker.build("rabia-gh/hellonode")
     }
 
