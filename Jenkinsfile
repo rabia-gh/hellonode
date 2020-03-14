@@ -1,12 +1,16 @@
 node {
+    def app
 
-    checkout scm
+    stage('Clone repository') {
+        /* Let's make sure we have the repository cloned to our workspace */
 
-    docker.withRegistry('https://registry.hub.docker.com', 'rabia97') {
+        checkout scm
+    }
 
-        def customImage = docker.build("rabia97/hellonode")
+    stage('Build image') {
+        /* This builds the actual image; synonymous to
+         * docker build on the command line */
 
-        /* Push the container to the custom Registry */
-        customImage.push()
+        app = docker.build("getintodevops/hellonode")
     }
 }
