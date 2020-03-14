@@ -6,10 +6,10 @@ pipeline {
   }
   agent any
   stages {
-    stage('Clone repository') {
-        /* Let's make sure we have the repository cloned to our workspace */
-
-        checkout scm
+   stage('Cloning Git') {
+      steps {
+        git 'https://github.com/rabia-gh/hellonode.git'
+      }
     }
     stage('Building image') {
       steps{
