@@ -17,7 +17,7 @@ node {
     stage('Push image') {
        steps {
         withDockerRegistry([ credentialsId: "rabia97", url: "" ]) {
-          sh 'docker push rabia97/hellonode:latest
+          sh 'docker push rabia97/hellonode:latest'
         }
       }
     }
